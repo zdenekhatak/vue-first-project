@@ -1,0 +1,12 @@
+.u-no-print {
+	@media print {
+		display: none;
+	}
+}
+
+
+.u-visible-on-print {
+	@media print {
+		opacity: 1 !important;
+	}
+}

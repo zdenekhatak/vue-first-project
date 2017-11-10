@@ -1,0 +1,105 @@
+.o-title {
+	padding-bottom: $bu;
+
+	font-family: $font-family;
+	color: $black;
+}
+
+.o-title--alpha {
+	position: relative;
+
+	margin-bottom: 0;
+
+	font-size: 60px;
+	line-height: 65px;
+	font-weight: 600;
+
+	&:before {
+		content: '';
+
+		position: absolute;
+		top: 35px;
+		left: -90px;
+
+		height: 4px;
+		width: 60px;
+
+		background: $orange;
+	}
+
+	@include media-query('portable') {
+		font-size: 48px;
+		line-height: 54px;
+
+		&:before {
+			top: 25px;
+			left: -80px;
+
+			height: 3px;
+			width: 50px;
+		}
+	}
+
+	@include media-query('palm') {
+		font-size: 42px;
+		line-height: 48px;
+
+		&:before {
+			left: 0;
+			top: -20px;
+
+			width: 30px;
+			height: 2px;
+		}
+	}
+
+	@include media-query('palm-mini') {
+		font-size: 40px;
+		line-height: 45px;
+	}
+}
+
+.o-title--beta {
+	padding-bottom: 1.5 * $bu;
+
+	font-size: 44px;
+	line-height: 60px;
+	font-weight: 600;
+
+	@include media-query('portable') {
+		font-size: 42px;
+		line-height: 58px;
+	}
+
+	@include media-query('palm') {
+		font-size: 38px;
+		line-height: 50px;
+	}
+
+	@include media-query('palm-small') {
+		padding-bottom: $bu;
+
+		font-size: 32px;
+		line-height: 46px;
+	}
+}
+
+.o-title--gamma {
+	font-size: 26px;
+	line-height: 36px;
+	font-weight: 600;
+
+	@include media-query('palm-small') {
+		padding-bottom: $bu / 2;
+
+		font-size: 22px;
+		line-height: 30px;
+	}
+}
+
+.o-title--delta {
+	padding-bottom: $bu * 2/3 !important;
+
+	font-size: 20px;
+	font-weight: 600;
+}

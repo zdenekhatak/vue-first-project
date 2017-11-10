@@ -1,0 +1,92 @@
+// please, include only variables or mixins
+// not sass code, it would repeat in the compiled style
+@mixin media-query($mq) {
+
+    $breakpoint-found: false;
+
+    // Loop through the list of breakpoints we’ve provided in our settings file.
+    @each $breakpoint in $breakpoints {
+
+        // Grab the alias and the condition from their respective locations in
+        // the list.
+        $alias:     nth($breakpoint, 1);
+        $condition: nth($breakpoint, 2);
+
+        // If the media query we’ve specified has an alias and a condition...
+        @if $mq == $alias and $condition {
+
+            // ...tell the mixin that we’ve found it...
+            $breakpoint-found: true;
+
+            // ...and spit it out here.
+            @media #{$condition} {
+                @content;
+            }
+
+        }
+
+    }
+
+    // If the user specifies a non-exitent alias, send them a warning.
+    @if $breakpoint-found == false{
+        @warn "Oops! Breakpoint ‘#{$mq}’ does not exist."
+    }
+}
+
+$inuit-responsive-settings: true !default;
+
+$inuit-layout-namespace: 'o-';
+$inuit-enable-layout--flush: true;
+$inuit-enable-layout--small: true;
+$inuit-enable-layout--tiny: true;
+$inuit-enable-layout--middle: true;
+$inuit-enable-layout--right: true;
+$inuit-enable-layout--huge: true;
+$inuit-enable-layout--center: true;
+$inuit-enable-layout--rev: true;
+
+$bu: 24px;
+$max-width: 1280px;
+$block: 25%;
+$blockSmaller: 33.333%;
+$sectionAdjust: 120px;
+$logoSize: 82px;
+
+$animationTiming: cubic-bezier(0.77, 0, 0.175, 1);
+
+$black: #000;
+$white: #fff;
+$dark: #222;
+$text: #555;
+$orange: #c46e4d;
+
+$font-family: 'Poppins', sans-serif;
+
+$inuit-widths-columns-responsive: (
+    1,
+    2,
+    3,
+    4,
+    6
+);
+
+$inuit-widths-columns: (
+    1,
+    2,
+    3,
+    4,
+    6
+);
+
+$breakpoints: (
+    "wider"          "screen and (max-width: 83.75em)",
+    "wide"          "screen and (max-width: 77.9375em)", // 0 - 1247px"
+    "desk"          "screen and (min-width: 64em)",
+    "portable"      "screen and (max-width: 63.9375em)", // 1023
+    "portable-mini" "screen and (max-width: 59.9375em)",
+    "lap-and-up"    "screen and (min-width: 48.0625em)",
+    "lap"           "screen and (min-width: 48.0625em) and (max-width: 63.9375em)",
+    "palm"          "screen and (max-width: 48em)", // 768px
+    "palm-small"    "screen and (max-width: 35.9375em)",
+    "palm-mini"     "screen and (max-width: 22em)"
+);

@@ -1,0 +1,55 @@
+.o-perex {
+	position: relative;
+
+	display: block;
+
+	color: $black;
+	font-size: 1.625em;
+	line-height: 1.76;
+	-webkit-text-stroke-width: .015em;
+	-webkit-text-stroke-color: rgba(255,255,255, 0.5);
+
+	&:before {
+		content: '';
+
+		position: absolute;
+		top: 20px;
+		left: -50px;
+
+		height: 2px;
+		width: 30px;
+		background: $orange;
+	}
+
+	@include media-query('portable') {
+		font-size: 1.4em;
+		line-height: 1.6;
+	}
+
+	@include media-query('palm') {
+		&:before {
+			left: 0;
+			top: -20px;
+		}
+	}
+
+	@include media-query('palm-small') {
+		font-size: 1.3em;
+	}
+}
+
+.o-perex--animate {
+	&:before {
+		transform-origin: left center;
+		transform: scale(0, 1);
+		transition: transform 400ms $animationTiming;
+
+		will-change: transform;
+	}
+
+	&.is-revealed {
+		&:before {
+			transform: scale(1, 1);
+		}
+	}
+}

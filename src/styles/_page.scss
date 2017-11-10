@@ -1,0 +1,29 @@
+html {
+	box-sizing: border-box;
+}
+
+body {
+	min-height: 100%;
+
+	font-family: $font-family;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+a {
+	color: $orange;
+	text-decoration: none;
+
+	transition: color 300ms ease;
+}
+
+@keyframes revealLeft {
+	0% {
+		transform: scale(0, 1);
+	}
+	100% {
+		transform: scale(1,1);
+	}
+}
